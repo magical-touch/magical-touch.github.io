@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en"><head>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magical Touch — CHI EA 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -93,6 +93,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
 
         .gallery-item img {
@@ -100,7 +101,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: opacity 0.25s;
+            transition: opacity 0.2s;
         }
 
         .gallery-placeholder {
@@ -109,8 +110,6 @@
             color: var(--ink-light);
         }
 
-        .gallery-item { cursor: pointer; }
-        .gallery-item img { transition: opacity 0.2s; }
         .gallery-item:hover img { opacity: 0.82; }
 
         /* ── LIGHTBOX ── */
@@ -281,21 +280,6 @@
             margin-right: 3px;
             font-size: 10px;
         }
-
-        .emails {
-            font-size: 12px;
-            color: var(--ink-light);
-            font-family: var(--mono);
-            text-align: center;
-        }
-
-        .emails a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s;
-            margin-right: 16px;
-        }
-        .emails a:hover { color: var(--accent); }
 
         /* ── LINK BUTTONS ── */
         .action-row {
@@ -540,7 +524,7 @@
         }
     </style>
 </head>
-<body data-cc-id="cc-1" style="cursor: crosshair; background-color: rgb(255, 255, 255);">
+<body>
 
 <!-- NAV -->
 <nav>
@@ -557,30 +541,30 @@
 
 <!-- HERO -->
 <div class="hero" style="text-align: center">
-    <div class="venue-pill fade-up visible">CHI 2026</div>
+    <div class="venue-pill fade-up">CHI 2026</div>
 
-    <h1 class="fade-up visible" style="transition-delay: 0.08s; text-align: center; font-size: 53px">
+    <h1 class="fade-up" style="transition-delay: 0.08s; text-align: center; font-size: 53px">
         Magical Touch<br>
         <em>Exploring Touchscreen Interaction<br>Based on Raw Capacitive Sensing Data</em>
     </h1>
 
-    <div class="authors-block fade-up visible" style="transition-delay:0.16s">
+    <div class="authors-block fade-up" style="transition-delay:0.16s">
         <div class="authors-row">
             <div class="author-card">
                 <div class="author">Yuanlei Guo<sup>1</sup></div>
-                <span class="author-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acd5cbd9c39a9e9feccbcdd8c9cfc482c9c8d9">[email&#160;protected]</a></span>
+                <a class="author-email" href="mailto:yguo623@gatech.edu">yguo623@gatech.edu</a>
             </div>
             <div class="author-card">
                 <div class="author">Xizi Gong<sup>2</sup></div>
-                <span class="author-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a2d25242d322330237a7d797a0a3a213f642f2e3f642924">[email&#160;protected]</a></span>
+                <a class="author-email" href="mailto:gongxizi0730@pku.edu.cn">gongxizi0730@pku.edu.cn</a>
             </div>
             <div class="author-card">
                 <div class="author">Yizhong Zhang<sup>2</sup></div>
-                <span class="author-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f465645575051581145575e51587f52565c4d504c50594b115c5052">[email&#160;protected]</a></span>
+                <a class="author-email" href="mailto:yizhong.zhang@microsoft.com">yizhong.zhang@microsoft.com</a>
             </div>
             <div class="author-card">
                 <div class="author">Xiaoyu Zhang<sup>3</sup></div>
-                <span class="author-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0b8a9a1afb9b5eebaa8a1aea780a3a9b4b9b5eea5a4b5eea8ab">[email&#160;protected]</a></span>
+                <a class="author-email" href="mailto:xiaoyu.zhang@cityu.edu.hk">xiaoyu.zhang@cityu.edu.hk</a>
             </div>
         </div>
         <div class="affiliations">
@@ -590,7 +574,7 @@
         </div>
     </div>
 
-    <div class="action-row fade-up visible" style="transition-delay:0.24s">
+    <div class="action-row fade-up" style="transition-delay:0.24s">
         <a href="https://doi.org/10.1145/3772363.3799129" target="_blank" rel="noopener" class="action-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             Paper
@@ -610,11 +594,11 @@
 
 <!-- TEASER -->
 <section id="teaser">
-    <div class="section-label fade-up visible">Overview</div>
-    <div class="teaser-wrap fade-up visible" style="transition-delay:0.08s">
-        <img src="pipeline_new_color.png" alt="Overview of Magical Touch pipeline" style="width:100%; display:block;">
+    <div class="section-label fade-up">Overview</div>
+    <div class="teaser-wrap fade-up" style="transition-delay:0.08s">
+        <img src="pipeline_new_color.png" alt="Overview of Magical Touch pipeline">
     </div>
-    <p class="fig-caption fade-up visible" style="transition-delay:0.16s">
+    <p class="fig-caption fade-up" style="transition-delay:0.16s">
         <strong>Overview of Magical Touch.</strong>
         (a) When a hand touches the surface of a capacitive touchscreen, the sensor detects changes in the spatial capacitance distribution, obtaining
         (b) a two-dimensional raw capacitance image reflecting overall contact shape and force.
@@ -626,12 +610,12 @@
 
 <!-- ABSTRACT -->
 <section id="abstract">
-    <div class="section-label fade-up visible">Abstract</div>
-    <p class="abstract-text fade-up visible" style="transition-delay:0.08s">
+    <div class="section-label fade-up">Abstract</div>
+    <p class="abstract-text fade-up" style="transition-delay:0.08s">
         Modern touchscreens utilize capacitive sensing technology to enable precise and robust multi-touch interaction. However, the broader expressive potential of the human hand remains underutilized, since most existing methods directly filter out larger-area hand–screen contact. This paper introduces <strong>Magical Touch</strong>, an interaction method based on raw capacitive sensing data. By directly integrating raw touchscreen sensor data into the interaction loop, our method allows users to interact with the screen naturally and efficiently using arbitrary hand gestures on existing touchscreen devices.
     </p>
     <br>
-    <p class="abstract-text fade-up visible" style="transition-delay:0.16s">
+    <p class="abstract-text fade-up" style="transition-delay:0.16s">
         To demonstrate the feasibility and expressive capacity of this approach, we implement a physics-based interactive game featuring single-player, multiplayer collaborative, and pressure-sensitive modes. These scenarios showcase how digital objects can respond in real-time to both the <strong>geometry</strong> and <strong>contact intensity</strong> of the user's hand. Our results indicate that leveraging raw capacitive data can expand the design space of touchscreen interaction, offering an embodied and continuous interaction paradigm beyond existing fingertip-based approaches.
     </p>
 </section>
@@ -640,8 +624,8 @@
 
 <!-- VIDEO -->
 <section id="video">
-    <div class="section-label fade-up visible">Demo Video</div>
-    <a href="https://www.youtube.com/watch?v=T3lgiTLNBnA" target="_blank" rel="noopener" class="video-wrap fade-up visible" style="transition-delay:0.08s; display:block; text-decoration:none;">
+    <div class="section-label fade-up">Demo Video</div>
+    <a href="https://www.youtube.com/watch?v=T3lgiTLNBnA" target="_blank" rel="noopener" class="video-wrap fade-up" style="transition-delay:0.08s; display:block; text-decoration:none;">
         <img src="https://img.youtube.com/vi/T3lgiTLNBnA/maxresdefault.jpg" alt="Magical Touch Demo Video">
         <div class="play-ring">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
@@ -662,7 +646,7 @@
         <div class="gallery-item" onclick="lbOpen(4)"><img src="gallery-4.jpg" alt="CHI 2026 Gallery 5"></div>
         <div class="gallery-item" onclick="lbOpen(5)"><img src="gallery-5.jpg" alt="CHI 2026 Gallery 6"></div>
     </div>
-    <p class="fig-caption fade-up" style="transition-delay:0.16s; margin-top:16px">Photos from CHI 2026, Barcelona. <em>Replace placeholders with your images.</em></p>
+    <p class="fig-caption fade-up" style="transition-delay:0.16s; margin-top:16px">Photos from CHI 2026, Barcelona.</p>
 </section>
 
 <div class="full-rule"></div>
@@ -713,17 +697,6 @@
     <button class="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
     <img id="lb-img" src="" alt="">
     <div class="lb-controls">
-        <button class="lb-btn" id="lb-prev" onclick="lbStep(-1)">← Prev</button>
-        <span class="lb-counter" id="lb-counter"></span>
-        <button class="lb-btn" id="lb-next" onclick="lbStep(1)">Next →</button>
-    </div>
-</div>
-
-<!-- LIGHTBOX -->
-<div id="lightbox" role="dialog" aria-modal="true">
-    <button class="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
-    <img id="lb-img" src="" alt="">
-    <div class="lb-controls">
         <button class="lb-btn" id="lb-prev" onclick="lbStep(-1)">&#8592; Prev</button>
         <span class="lb-counter" id="lb-counter"></span>
         <button class="lb-btn" id="lb-next" onclick="lbStep(1)">Next &#8594;</button>
@@ -732,11 +705,11 @@
 
 <!-- FOOTER -->
 <footer>
-    <span class="footer-copy">© 2026 Magical Touch Project</span>
-    <span class="footer-venue">CHI ’26 · Barcelona, Spain</span>
+    <span class="footer-copy">&copy; 2026 Magical Touch Project</span>
+    <span class="footer-venue">CHI '26 &middot; Barcelona, Spain</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
     /* Fade-in on scroll */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
@@ -747,11 +720,9 @@
         });
     }, { threshold: 0.08 });
 
-    document.querySelectorAll('.fade-up').forEach((el, i) => {
-        observer.observe(el);
-    });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    /* Trigger hero fades immediately on DOM ready */
+    /* Trigger hero fades immediately */
     document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible'));
 
     /* Copy BibTeX */
@@ -805,9 +776,7 @@
         if (e.key === 'ArrowRight') lbStep(1);
         if (e.key === 'Escape') lbClose();
     });
-
 </script>
 
-
-
-</body></html>
+</body>
+</html>
