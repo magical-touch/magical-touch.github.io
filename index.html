@@ -543,28 +543,28 @@
 <div class="hero" style="text-align: center">
     <div class="venue-pill fade-up">CHI 2026</div>
 
-    <h1 class="fade-up" style="transition-delay: 0.08s; text-align: center; font-size: 53px">
-        Magical Touch<br>
-        <em>Exploring Touchscreen Interaction<br>Based on Raw Capacitive Sensing Data</em>
+    <h1 class="fade-up" style="transition-delay: 0.08s; text-align: center;">
+        <span style="font-size: 68px;">Magical Touch</span><br>
+        <em style="font-size: 32px;">Exploring Touchscreen Interaction<br>Based on Raw Capacitive Sensing Data</em>
     </h1>
 
     <div class="authors-block fade-up" style="transition-delay:0.16s">
         <div class="authors-row">
             <div class="author-card">
                 <div class="author">Yuanlei Guo<sup>1</sup></div>
-                <a class="author-email" href="mailto:yguo623@gatech.edu">yguo623@gatech.edu</a>
+                <span class="author-email" data-u="yguo623" data-d="gatech.edu"></span>
             </div>
             <div class="author-card">
                 <div class="author">Xizi Gong<sup>2</sup></div>
-                <a class="author-email" href="mailto:gongxizi0730@pku.edu.cn">gongxizi0730@pku.edu.cn</a>
+                <span class="author-email" data-u="gongxizi0730" data-d="pku.edu.cn"></span>
             </div>
             <div class="author-card">
                 <div class="author">Yizhong Zhang<sup>2</sup></div>
-                <a class="author-email" href="mailto:yizhong.zhang@microsoft.com">yizhong.zhang@microsoft.com</a>
+                <span class="author-email" data-u="yizhong.zhang" data-d="microsoft.com"></span>
             </div>
             <div class="author-card">
                 <div class="author">Xiaoyu Zhang<sup>3</sup></div>
-                <a class="author-email" href="mailto:xiaoyu.zhang@cityu.edu.hk">xiaoyu.zhang@cityu.edu.hk</a>
+                <span class="author-email" data-u="xiaoyu.zhang" data-d="cityu.edu.hk"></span>
             </div>
         </div>
         <div class="affiliations">
@@ -724,6 +724,12 @@
 
     /* Trigger hero fades immediately */
     document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible'));
+
+    /* Render emails (bypasses Cloudflare email obfuscation) */
+    document.querySelectorAll('.author-email[data-u]').forEach(el => {
+        const addr = el.dataset.u + '@' + el.dataset.d;
+        el.textContent = addr;
+    });
 
     /* Copy BibTeX */
     function copyBibtex(btn) {
