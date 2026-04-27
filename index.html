@@ -1,364 +1,680 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magical Touch | CHI EA 2026</title>
+    <title>Magical Touch — CHI EA 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&amp;display=swap" rel="stylesheet">
+
     <style>
-        * {
-            box-sizing: border-box;
-            touch-action: manipulation;
+        :root {
+            --bg:        #ffffff;
+            --bg-alt:    #f4f4f4;
+            --ink:       #0a0a0a;
+            --ink-mid:   #444444;
+            --ink-light: #999999;
+            --accent:    #0a0a0a;
+            --accent-lt: #f0f0f0;
+            --rule:      #e0e0e0;
+            --mono:      "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
         }
 
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: #1a1a1a;
-            line-height: 1.6;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        body::before {
-            content: "";
-            position: fixed;          
-            top: 0; 
-            left: 0; 
-            width: 100vw; 
-            height: 100vh;
-            background-image: url('eb3476ce045e67915332ade83ea1bbdd-.png');
-            background-repeat: no-repeat;
-            background-position: center center;  
-            background-size: cover;               
-            z-index: -1;
-            opacity: 0.08;            
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .content-box {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid #e2e2e2;
-            border-radius: 8px;
-            padding: 20px; 
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        h1.game-title {
-            font-size: 36px;
-            color: #111;
-            text-align: center;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        h2.section-title {
-            font-size: 22px;
-            color: #111;
-            margin-top: 0;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e2e2e2;
-            padding-bottom: 10px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(49, 130, 206, 0.12);
-            color: #000000;
-            padding: 6px 14px;
-            font-size: 13px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .player-list {
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 75px;
-            margin-bottom: 2px; 
-            font-size: 13px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            height: 52px;
+            background: #ffffff;
+            backdrop-filter: none;
+            border-bottom: 1px solid var(--rule);
         }
 
-        .player {
-            color: #555;
+        .nav-logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 18px;
             font-weight: 500;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            text-decoration: none;
         }
 
-        .contact-email {
-            font-size: 10px;
-            color: #555;
-            text-align: center;
-            margin-bottom: 12px; 
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
         }
 
-        .contact-email a {
-            color: #555;
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-mid);
             text-decoration: none;
             transition: color 0.2s;
-            margin: 0 10px;
         }
 
-        .contact-email a:hover {
-            color: #1a4971;
-            text-decoration: underline;
-        }
-        
-        .affiliations {
-            font-size: 12px;
-            color: #555;
-            text-align: center;
-            margin-bottom: 40px; 
+        .nav-links a:hover { color: var(--ink); }
+
+        /* ── GALLERY ── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
         }
 
-        .btn-container {
+        .gallery-item {
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--rule);
+            background: var(--bg-alt);
+            aspect-ratio: 4/3;
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .arcade-btn {
-            border: none;
-            background: transparent;
-            color: #333;
-            padding: 10px 24px;
-            border-radius: 0;
-            cursor: pointer;
-            transition: color 0.2s;
-            font-size: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
             align-items: center;
             justify-content: center;
         }
 
-        .arcade-btn:hover {
-            color: #2b6cb0;
-            background: transparent;
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.25s;
         }
 
-        .btn-icon {
-            width: 30px;
-            height: auto;
-            margin-right: 6px;
-            vertical-align: middle;
+        .gallery-placeholder {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--ink-light);
         }
 
-        .arcade-btn:hover .btn-icon {
-            filter: none;
+        .gallery-item { cursor: pointer; }
+        .gallery-item img { transition: opacity 0.2s; }
+        .gallery-item:hover img { opacity: 0.82; }
+
+        /* ── LIGHTBOX ── */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(0,0,0,0.92);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #lightbox.open { display: flex; }
+        #lb-img {
+            max-width: 90vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 2px;
+            user-select: none;
+        }
+        .lb-controls {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .lb-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            font-family: "DM Sans", sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            padding: 8px 20px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .lb-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.6); }
+        .lb-btn:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+        .lb-counter {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: rgba(255,255,255,0.45);
+            min-width: 52px;
+            text-align: center;
+        }
+        .lb-close {
+            position: absolute;
+            top: 20px; right: 24px;
+            background: none; border: none;
+            color: rgba(255,255,255,0.45);
+            font-size: 28px; cursor: pointer; line-height: 1;
+            transition: color 0.2s;
+        }
+        .lb-close:hover { color: #fff; }
+
+        /* ── ACKNOWLEDGEMENTS ── */
+        .ack-text {
+            font-size: 15px;
+            line-height: 1.85;
+            color: var(--ink-mid);
+            text-wrap: pretty;
         }
 
-        p.abstract-text {
-            color: #333;
-            font-size: 16px;
-            line-height: 1.8;
-            text-align: justify;
+        .ack-text strong {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 48px 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .venue-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-bottom: 36px;
+        }
+
+        h1 {
+            font-family: "DM Sans", sans-serif;
+            font-size: clamp(36px, 5.5vw, 64px);
+            font-weight: 500;
+            line-height: 1.18;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 52px;
+            text-wrap: pretty;
+        }
+
+        h1 em {
+            font-style: normal;
+            font-weight: 300;
+            color: var(--ink-mid);
+        }
+
+        .authors-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 52px;
+        }
+
+        .authors-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0 40px;
+        }
+
+        .author-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .author-email {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--ink-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .author-email:hover { color: var(--ink); }
+
+        .author {
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--ink);
+            white-space: nowrap;
+        }
+
+        .author sup {
+            font-size: 10px;
+            color: var(--accent);
+            margin-left: 1px;
+        }
+
+        .affiliations {
+            font-size: 13px;
+            color: var(--ink-light);
+            letter-spacing: 0.01em;
+            text-align: center;
+        }
+
+        .affiliations sup {
+            color: var(--accent);
+            margin-right: 3px;
+            font-size: 10px;
+        }
+
+        .emails {
+            font-size: 12px;
+            color: var(--ink-light);
+            font-family: var(--mono);
+            text-align: center;
+        }
+
+        .emails a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+            margin-right: 16px;
+        }
+        .emails a:hover { color: var(--accent); }
+
+        /* ── LINK BUTTONS ── */
+        .action-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--ink);
+            text-decoration: none;
+            background: white;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+        }
+
+        .action-btn:hover {
+            border-color: var(--ink);
+            background: var(--ink);
+            color: #ffffff;
+        }
+
+        .action-btn:hover svg { opacity: 1; }
+
+        .action-btn svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        /* ── DIVIDER ── */
+        .full-rule {
+            width: 100%;
+            height: 1px;
+            background: var(--rule);
             margin: 0;
         }
 
-        strong {
-            color: #111;
-            font-weight: 600;
+        /* ── SECTIONS ── */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 72px 48px;
         }
 
-        .image-frame {
-            margin-bottom: 15px;
-        }
-        
-        .image-frame img {
-            width: 100%;
-            display: block;
-            border-radius: 6px;
-            border: 1px solid #e2e2e2;
-        }
-
-        .figure-caption {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.6;
-            text-align: center;
-            margin-top: 15px;
+        .section-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        /* 视频缩略图 + 播放按钮 */
-        .video-thumbnail {
-            position: relative;
-            display: block;
-            border-radius: 6px;
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+        }
+
+        /* ── TEASER IMAGE ── */
+        .teaser-wrap {
+            border: 1px solid var(--rule);
+            border-radius: 4px;
             overflow: hidden;
-            border: 1px solid #e2e2e2;
-            cursor: pointer;
+            margin-bottom: 20px;
+            background: white;
         }
 
-        .video-thumbnail img {
+        .teaser-wrap img {
             width: 100%;
             display: block;
         }
 
-        .video-thumbnail .play-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .fig-caption {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--ink-mid);
+            padding: 0 4px;
+        }
+
+        .fig-caption strong {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        /* ── ABSTRACT ── */
+        .abstract-text {
+            font-size: 17px;
+            line-height: 1.85;
+            color: var(--ink-mid);
+            text-wrap: pretty;
+        }
+
+        .abstract-text strong {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        /* ── VIDEO ── */
+        .video-wrap {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--rule);
+            cursor: pointer;
+            background: #0a0a0a;
+        }
+
+        .video-wrap img {
             width: 100%;
-            height: 100%;
+            display: block;
+            opacity: 0.9;
+            transition: opacity 0.25s;
+        }
+
+        .video-wrap:hover img { opacity: 0.75; }
+
+        .play-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.9);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.2);
-            transition: background 0.2s;
+            transition: background 0.2s, border-color 0.2s;
         }
 
-        .video-thumbnail:hover .play-overlay {
-            background: rgba(0, 0, 0, 0.4);
+        .video-wrap:hover .play-ring {
+            background: rgba(255,255,255,0.15);
         }
 
-        .play-overlay svg {
-            width: 68px;
-            height: 48px;
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+        .play-ring svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+            margin-left: 4px;
         }
 
-        .bibtex-box {
-            background: #f7f7f7;
-            border: 1px solid #e2e2e2;
-            border-radius: 6px;
-            padding: 16px 20px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            font-size: 13px;
-            color: #444;
-            line-height: 1.6;
-            overflow-x: auto;
-            white-space: pre;
+        /* ── BIBTEX ── */
+        .bibtex-wrap {
             position: relative;
+            background: var(--bg-alt);
+            border: 1px solid var(--rule);
+            border-radius: 4px;
+            padding: 24px 28px;
+        }
+
+        .bibtex-code {
+            font-family: var(--mono);
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--ink-mid);
+            white-space: pre;
+            overflow-x: auto;
         }
 
         .copy-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.05);
-            border: 1px solid #ccc;
-            color: #555;
-            padding: 4px 12px;
-            border-radius: 4px;
+            top: 14px;
+            right: 14px;
+            background: white;
+            border: 1px solid var(--rule);
+            color: var(--ink-mid);
+            padding: 5px 14px;
+            border-radius: 2px;
             font-size: 12px;
+            font-family: "DM Sans", sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.04em;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: border-color 0.2s, color 0.2s;
         }
 
         .copy-btn:hover {
-            background: rgba(0,0,0,0.1);
-            color: #111;
+            border-color: var(--ink);
+            background: var(--ink);
+            color: #ffffff;
         }
 
-        @media (max-width: 600px) {
-            h1.game-title { font-size: 28px; }
-            .content-box { padding: 20px; }
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--rule);
+            padding: 28px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--ink-light);
+        }
+
+        .footer-venue {
+            font-size: 13px;
+            color: var(--ink-light);
+            font-family: "Cormorant Garamond", serif;
+            font-style: italic;
+        }
+
+        /* ── FADE IN ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 680px) {
+            nav { padding: 0 20px; }
+            .nav-links { gap: 18px; }
+            .hero { padding: 100px 24px 64px; }
+            section { padding: 56px 24px; }
+            footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+            .bibtex-code { font-size: 11.5px; }
         }
     </style>
 </head>
-<body>
+<body data-cc-id="cc-1" style="cursor: crosshair; background-color: rgb(255, 255, 255);">
 
-<div class="container">
+<!-- NAV -->
+<nav>
+    <a class="nav-logo" href="#">Magical Touch</a>
+    <ul class="nav-links">
+        <li><a href="#teaser">Overview</a></li>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#bibtex">Cite</a></li>
+        <li><a href="#acknowledgements">Ack.</a></li>
+    </ul>
+</nav>
 
-    <div style="text-align: center; margin-bottom: 60px;">
-        
-        <p style="font-family: 'Instrument Sans', sans-serif; color: #000000; font-size: 24px; margin-bottom: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Magical Touch: Exploring Touchscreen Interaction Based on Raw Capacitive Sensing Data
-        </p>
+<!-- HERO -->
+<div class="hero" style="text-align: center">
+    <div class="venue-pill fade-up visible">CHI 2026</div>
 
-        <div class="player-list">
-            <div class="player">Yuanlei Guo<sup>1</sup></div>
-            <div class="player">Xizi Gong<sup>2</sup></div>
-            <div class="player">Yizhong Zhang<sup>2</sup></div>
-            <div class="player">Xiaoyu Zhang<sup>3</sup></div>
+    <h1 class="fade-up visible" style="transition-delay: 0.08s; text-align: center; font-size: 53px">
+        Magical Touch<br>
+        <em>Exploring Touchscreen Interaction<br>Based on Raw Capacitive Sensing Data</em>
+    </h1>
+
+    <div class="authors-block fade-up visible" style="transition-delay:0.16s">
+        <div class="authors-row">
+            <div class="author-card">
+                <div class="author">Yuanlei Guo<sup>1</sup></div>
+                <a href="/cdn-cgi/l/email-protection#6d140a18025b5f5e2d0a0c19080e0543080918" class="author-email"><span class="__cf_email__" data-cfemail="49302e3c267f7b7a092e283d2c2a21672c2d3c">[email&#160;protected]</span></a>
+            </div>
+            <div class="author-card">
+                <div class="author">Xizi Gong<sup>2</sup></div>
+                <a href="/cdn-cgi/l/email-protection#0f68606168776675663f383c3f4f7f647a216a6b7a216c61" class="author-email"><span class="__cf_email__" data-cfemail="dcbbb3b2bba4b5a6b5ecebefec9cacb7a9f2b9b8a9f2bfb2">[email&#160;protected]</span></a>
+            </div>
+            <div class="author-card">
+                <div class="author">Yizhong Zhang<sup>2</sup></div>
+                <a href="/cdn-cgi/l/email-protection#a7deceddcfc8c9c089ddcfc6c9c0e7cacec4d5c8d4c8c1d389c4c8ca" class="author-email"><span class="__cf_email__" data-cfemail="94edfdeefcfbfaf3baeefcf5faf3d4f9fdf7e6fbe7fbf2e0baf7fbf9">[email&#160;protected]</span></a>
+            </div>
+            <div class="author-card">
+                <div class="author">Xiaoyu Zhang<sup>3</sup></div>
+                <a href="/cdn-cgi/l/email-protection#c7bfaea6a8beb2e9bdafa6a9a087a4aeb3beb2e9a2a3b2e9afac" class="author-email"><span class="__cf_email__" data-cfemail="95edfcf4faece0bbeffdf4fbf2d5f6fce1ece0bbf0f1e0bbfdfe">[email&#160;protected]</span></a>
+            </div>
         </div>
-
-        <div class="contact-email">
-            <a href="mailto:yguo623@gatech.edu">yguo623@gatech.edu</a>
-            <a href="mailto:gongxizi0730@pku.edu.cn">gongxizi0730@pku.edu.cn</a>
-            <a href="mailto:yizhong.zhang@microsoft.com">yizhong.zhang@microsoft.com</a>
-            <a href="mailto:xiaoyu.zhang@cityu.edu.hk">xiaoyu.zhang@cityu.edu.hk</a>
-        </div>
-
         <div class="affiliations">
-            <sup>1</sup> Georgia Institute of Technology &nbsp;&nbsp;
-            <sup>2</sup> Microsoft Research Asia &nbsp;&nbsp;
+            <sup>1</sup> Georgia Institute of Technology &ensp;
+            <sup>2</sup> Microsoft Research Asia &ensp;
             <sup>3</sup> City University of Hong Kong
         </div>
-
-        <div class="btn-container">
-            <a href="https://doi.org/10.1145/3772363.3799129" target="_blank" rel="noopener" class="arcade-btn">
-                <img src="paper_icon.png" alt="" class="btn-icon"> Paper
-            </a>
-            <!-- 直接跳转 YouTube，新标签页打开 -->
-            <a href="https://www.youtube.com/watch?v=T3lgiTLNBnA" target="_blank" rel="noopener" class="arcade-btn">
-                <img src="youtube_icon.png" alt="" class="btn-icon"> Video
-            </a>
-            <a href="https://github.com/magical-touch/magical-touch" target="_blank" rel="noopener" class="arcade-btn">
-                <img src="github_icon.png" alt="" class="btn-icon"> Code
-            </a>
-        </div>
     </div>
 
-    <div class="content-box">
-        <div class="image-frame">
-            <img src="pipeline_new_color.png" 
-                 alt="Overview of the proposed interaction method based on raw capacitance data.">
-        </div>
-        <div class="figure-caption">
-            <strong>Overview of the Magical Touch:</strong> 
-            (a) When a hand touches the surface of a capacitive touchscreen, the sensor detects changes in the spatial capacitance distribution, thus obtaining 
-            (b) a two-dimensional raw capacitance image reflecting the overall contact shape and force. 
-            (c) This raw capacitance image is directly input into the game engine to achieve natural and continuous interaction.
-        </div>
-    </div>
-
-    <div class="content-box">
-        <h2 class="section-title">Abstract</h2>
-        <p class="abstract-text">
-            Modern touchscreens utilize capacitive sensing technology to enable precise and robust multi-touch interaction. However, the broader expressive potential of the human hand remains underutilized, since most existing methods directly filter out larger-area hand–screen contact. This paper introduces <strong>Magical Touch</strong>, an interaction method based on raw capacitive sensing data. By directly integrating raw touchscreen sensor data into the interaction loop, our method allows users to interact with the screen naturally and efficiently using arbitrary hand gestures on existing touchscreen devices. To demonstrate the feasibility and expressive capacity of this approach, we implement a physics-based interactive game featuring single-player, multiplayer collaborative, and pressure-sensitive modes. These scenarios showcase how digital objects can respond in real-time to both the <strong>geometry</strong> and <strong>contact intensity</strong> of the user's hand. Our results indicate that leveraging raw capacitive data can expand the design space of touchscreen interaction, offering an embodied and continuous interaction paradigm beyond existing fingertip-based approaches.
-        </p>
-    </div>
-
-    <!-- 用缩略图 + 播放按钮替代 iframe，点击跳转 YouTube -->
-    <div class="content-box">
-        <h2 class="section-title">Demo Video</h2>
-        <a href="https://www.youtube.com/watch?v=T3lgiTLNBnA" target="_blank" rel="noopener" class="video-thumbnail">
-            <img src="https://img.youtube.com/vi/T3lgiTLNBnA/maxresdefault.jpg" 
-                 alt="Magical Touch Demo Video">
-            <div class="play-overlay">
-                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/>
-                    <path d="M 45,24 27,14 27,34" fill="#fff"/>
-                </svg>
-            </div>
+    <div class="action-row fade-up visible" style="transition-delay:0.24s">
+        <a href="https://doi.org/10.1145/3772363.3799129" target="_blank" rel="noopener" class="action-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Paper
+        </a>
+        <a href="https://www.youtube.com/watch?v=T3lgiTLNBnA" target="_blank" rel="noopener" class="action-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Video
+        </a>
+        <a href="https://github.com/magical-touch/magical-touch" target="_blank" rel="noopener" class="action-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            Code
         </a>
     </div>
+</div>
 
-    <div class="content-box">
-        <h2 class="section-title">BibTeX</h2>
-        <div class="bibtex-box">
-            <button class="copy-btn" onclick="copyBibtex()">Copy</button>
-@inproceedings{10.1145/3772363.3799129,
+<div class="full-rule"></div>
+
+<!-- TEASER -->
+<section id="teaser">
+    <div class="section-label fade-up visible">Overview</div>
+    <div class="teaser-wrap fade-up visible" style="transition-delay:0.08s">
+        <div style="min-height:260px; background:#eceae4; display:flex; align-items:center; justify-content:center;">
+            <span style="font-family:var(--mono);font-size:13px;color:#9a948c;letter-spacing:0.04em;">[ pipeline_new_color.png ]</span>
+        </div>
+    </div>
+    <p class="fig-caption fade-up visible" style="transition-delay:0.16s">
+        <strong>Overview of Magical Touch.</strong>
+        (a) When a hand touches the surface of a capacitive touchscreen, the sensor detects changes in the spatial capacitance distribution, obtaining
+        (b) a two-dimensional raw capacitance image reflecting overall contact shape and force.
+        (c) This raw capacitance image is directly input into the game engine to achieve natural, continuous interaction.
+    </p>
+</section>
+
+<div class="full-rule"></div>
+
+<!-- ABSTRACT -->
+<section id="abstract">
+    <div class="section-label fade-up visible">Abstract</div>
+    <p class="abstract-text fade-up visible" style="transition-delay:0.08s">
+        Modern touchscreens utilize capacitive sensing technology to enable precise and robust multi-touch interaction. However, the broader expressive potential of the human hand remains underutilized, since most existing methods directly filter out larger-area hand–screen contact. This paper introduces <strong>Magical Touch</strong>, an interaction method based on raw capacitive sensing data. By directly integrating raw touchscreen sensor data into the interaction loop, our method allows users to interact with the screen naturally and efficiently using arbitrary hand gestures on existing touchscreen devices.
+    </p>
+    <br>
+    <p class="abstract-text fade-up visible" style="transition-delay:0.16s">
+        To demonstrate the feasibility and expressive capacity of this approach, we implement a physics-based interactive game featuring single-player, multiplayer collaborative, and pressure-sensitive modes. These scenarios showcase how digital objects can respond in real-time to both the <strong>geometry</strong> and <strong>contact intensity</strong> of the user's hand. Our results indicate that leveraging raw capacitive data can expand the design space of touchscreen interaction, offering an embodied and continuous interaction paradigm beyond existing fingertip-based approaches.
+    </p>
+</section>
+
+<div class="full-rule"></div>
+
+<!-- VIDEO -->
+<section id="video">
+    <div class="section-label fade-up visible">Demo Video</div>
+    <a href="https://www.youtube.com/watch?v=T3lgiTLNBnA" target="_blank" rel="noopener" class="video-wrap fade-up visible" style="transition-delay:0.08s; display:block; text-decoration:none;">
+        <img src="https://img.youtube.com/vi/T3lgiTLNBnA/maxresdefault.jpg" alt="Magical Touch Demo Video">
+        <div class="play-ring">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+        </div>
+    </a>
+</section>
+
+<div class="full-rule"></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <div class="section-label fade-up">Gallery</div>
+    <div class="gallery-grid fade-up" style="transition-delay:0.08s">
+        <div class="gallery-item" onclick="lbOpen(0)"><img src="gallery-0.jpg" alt="CHI 2026 Gallery 1"></div>
+        <div class="gallery-item" onclick="lbOpen(1)"><img src="gallery-1.jpg" alt="CHI 2026 Gallery 2"></div>
+        <div class="gallery-item" onclick="lbOpen(2)"><img src="gallery-2.jpg" alt="CHI 2026 Gallery 3"></div>
+        <div class="gallery-item" onclick="lbOpen(3)"><img src="gallery-3.jpg" alt="CHI 2026 Gallery 4"></div>
+        <div class="gallery-item" onclick="lbOpen(4)"><img src="gallery-4.jpg" alt="CHI 2026 Gallery 5"></div>
+        <div class="gallery-item" onclick="lbOpen(5)"><img src="gallery-5.jpg" alt="CHI 2026 Gallery 6"></div>
+    </div>
+    <p class="fig-caption fade-up" style="transition-delay:0.16s; margin-top:16px">Photos from CHI 2026, Barcelona. </p>
+</section>
+
+<div class="full-rule"></div>
+
+<!-- BIBTEX -->
+<section id="bibtex">
+    <div class="section-label fade-up">Citation</div>
+    <div class="bibtex-wrap fade-up" style="transition-delay:0.08s">
+        <button class="copy-btn" onclick="copyBibtex(this)">Copy</button>
+        <pre class="bibtex-code">@inproceedings{10.1145/3772363.3799129,
   title     = {Magical Touch: Exploring Touchscreen Interaction 
                Based on Raw Capacitive Sensing Data},
   author    = {Guo, Yuanlei and Gong, Xizi and Zhang, Yizhong and Zhang, Xiaoyu},
@@ -370,26 +686,130 @@
   isbn      = {979-8-4007-2281-3/2026/04},
   doi       = {10.1145/3772363.3799129},
   license   = {CC BY-NC-ND}
-}</div>
+}</pre>
     </div>
+</section>
 
-    <div style="text-align: center; color: #999; font-size: 13px; margin-top: 50px;">
-        &copy; 2026 Magical Touch Project
+<div class="full-rule"></div>
+
+<!-- ACKNOWLEDGEMENTS -->
+<section id="acknowledgements">
+    <div class="section-label fade-up">Acknowledgements</div>
+    <p class="ack-text fade-up" style="transition-delay:0.08s">
+        We are grateful to <strong>Federico Zannier</strong> and <strong>Jonathan Westhues</strong> for their help in developing the firmware for capturing raw touch data on Microsoft Surface, and to <strong>Qiaochu Wang</strong> for his suggestions to improve the demo design.
+    </p>
+    <br>
+    <p class="ack-text fade-up" style="transition-delay:0.14s">
+        We also thank the participants who volunteered for our pilot study and the anonymous reviewers for their feedback and suggestions that helped improve the quality of this paper.
+    </p>
+    <br>
+    <p class="ack-text fade-up" style="transition-delay:0.20s">
+        This research is sponsored in part by the <strong>CityUHK Start-Up Grant</strong> (Project No. 9610708).
+    </p>
+</section>
+
+<div class="full-rule"></div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true">
+    <button class="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
+    <img id="lb-img" src="" alt="">
+    <div class="lb-controls">
+        <button class="lb-btn" id="lb-prev" onclick="lbStep(-1)">← Prev</button>
+        <span class="lb-counter" id="lb-counter"></span>
+        <button class="lb-btn" id="lb-next" onclick="lbStep(1)">Next →</button>
     </div>
-
 </div>
 
-<script>
-function copyBibtex() {
-    const bibtex = document.querySelector('.bibtex-box').textContent
-        .replace('Copy', '').trim();
-    navigator.clipboard.writeText(bibtex).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = 'Copy', 2000);
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true">
+    <button class="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
+    <img id="lb-img" src="" alt="">
+    <div class="lb-controls">
+        <button class="lb-btn" id="lb-prev" onclick="lbStep(-1)">&#8592; Prev</button>
+        <span class="lb-counter" id="lb-counter"></span>
+        <button class="lb-btn" id="lb-next" onclick="lbStep(1)">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-copy">© 2026 Magical Touch Project</span>
+    <span class="footer-venue">CHI ’26 · Barcelona, Spain</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    /* Fade-in on scroll */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+        observer.observe(el);
     });
-}
+
+    /* Trigger hero fades immediately on DOM ready */
+    document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible'));
+
+    /* Copy BibTeX */
+    function copyBibtex(btn) {
+        const code = btn.closest('.bibtex-wrap').querySelector('.bibtex-code').textContent.trim();
+        navigator.clipboard.writeText(code).then(() => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2200);
+        });
+    }
+
+    /* ── Lightbox ── */
+    const lbSrcs = [
+        'gallery-0.jpg','gallery-1.jpg','gallery-2.jpg',
+        'gallery-3.jpg','gallery-4.jpg','gallery-5.jpg'
+    ];
+    let lbIndex = 0;
+
+    function lbOpen(i) {
+        lbIndex = i;
+        lbRender();
+        document.getElementById('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function lbClose() {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function lbStep(dir) {
+        lbIndex = Math.max(0, Math.min(lbSrcs.length - 1, lbIndex + dir));
+        lbRender();
+    }
+
+    function lbRender() {
+        document.getElementById('lb-img').src = lbSrcs[lbIndex];
+        document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbSrcs.length;
+        document.getElementById('lb-prev').disabled = lbIndex === 0;
+        document.getElementById('lb-next').disabled = lbIndex === lbSrcs.length - 1;
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) lbClose();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        const lb = document.getElementById('lightbox');
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'ArrowLeft') lbStep(-1);
+        if (e.key === 'ArrowRight') lbStep(1);
+        if (e.key === 'Escape') lbClose();
+    });
+
 </script>
 
-</body>
-</html>
+
+
+</body></html>
